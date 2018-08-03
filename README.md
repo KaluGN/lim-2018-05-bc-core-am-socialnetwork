@@ -75,15 +75,27 @@ Adicionalmente realizaremos una campa de difusión en redes sociales (Twitter, F
 
 ## Benchmark de las principales redes sociales
 
-- Sección de Gastronomía de [El Comercio](https://elcomercio.pe/noticias/gastronomia)
+### **Sección de Gastronomía de [El Comercio](https://elcomercio.pe/noticias/gastronomia)**
 
 En esta sección realizan galerías de sitios donde podemos ir a comer un determinado platillo, visitar en una ruta, eventos gastronómicos.
 ![gastronomía EC](img/EC-gastro.png)
 
-- [El Trinche](http://www.eltrinche.com/)
+### **[El Trinche](http://www.eltrinche.com/)**
 
 Es una plataforma web que recomienda restaurantes, tiene blogeros colaboradores.
 ![trinche](img/trinche.png)
+
+### **Love my salad**
+
+Es una red social de ensaladas que tiene blogs, trucos y consejos, pero sobre todo una sección de recetas en donde al introducir el nombre de cada insumo, la web retorna tips de cómo preparalo, cómo comprarlo, cómo conservarlo y cómo servirlo.
+
+![love_my_salad.png](img/love_my_salad.png)
+
+### **Come con Salud**
+
+Es una web de nutrición adaptada a un público general que tiene como contenido notas e informes acerca de la alimentación para adelgazar, remedios naturales, recetas de cocina saudable, consejos y trucos, todo en ayuda de un estilo de vida saludable.
+
+![come_con_salud.png](img/come_con_salud.png)
 
 ## Resumen de entrevistas con usuarios
 
@@ -121,18 +133,18 @@ Es una plataforma web que recomienda restaurantes, tiene blogeros colaboradores.
 * [x] Permite crear cuenta.
 * [x] Valida email.
 * [x] Valida password.
-* [ ] Muestra mensajes de error.
+* [x] Muestra mensajes de error.
 
 ### Inicio de sesión (sign in)
 
 * [x] Permite iniciar sesión.
 * [x] Valida email.
 * [x] Valida password.
-* [ ] Muestra mensajes de error.
+* [x] Muestra mensajes de error.
 
 ### Muro (wall/feed)
 
-* [ ] Muestra _muro_.
+* [x] Muestra _muro_.
 * [x] Permite publicar nuevos posts.
 * [x] Permite eliminar posts.
 * [ ] Pide confirmación antes de borrar posts.
