@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../src/img/L_logo.png" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <title>WariQué</title>
+
+
+    <!-- <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+     -->
+
+</head>
+
+<body>
+
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '{your-app-id}',
+        cookie     : true,
+        xfbml      : true,
+        version    : '{api-version}'
+      });
+
+      FB.AppEvents.logPageView();
+
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+    <header>
+        <h1 id="HereCall">WariQué</h1>
+    </header>
+
+    <main>
+        <div id="logContainer">
+            <div id="login">
+                <p id="username"></p>
+                <input id="buttonLogOut" type="button" value="SALIR"></input>
+            </div>
+            <div id="noLogin">
+                    <input id="emailSpace" type="email"></input>
+                    <input id="passwordSpace" type="password"></input>
+                <!-- <input id="buttonRegister" type="button" value="REGISTER"></input> -->
+                <input id="buttonLogIn" type="button" value="REGISTRARSE"></input>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyC1K9LkUQyl4cVah4hXkQ6CINmg9Zd_kZI",
+            authDomain: "warique-88140.firebaseapp.com",
+            databaseURL: "https://warique-88140.firebaseio.com",
+            projectId: "warique-88140",
+            storageBucket: "warique-88140.appspot.com",
+            messagingSenderId: "399831724179"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <!-- Enlace para inicializar con FB -- https://warique-88140.firebaseapp.com/__/auth/handler -->
+
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
