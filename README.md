@@ -101,9 +101,13 @@ temas en los que le gustaría invertir:
 En este proyecto **SÍ está permitido** usar librerías o frameworks, pero **no es obligatorio** :smiley:.
 
 
+
 ### UI y comportamiento (User Interface / Interfaz de Usuario)
 
 La interfaz debe permitir lo siguiente:
+=======
+**Prototipado de alta fidelidad**
+
 
 #### Creación de cuenta de usuario e inicio de sesión
 
@@ -160,7 +164,12 @@ El corazón de este proyecto incluye:
   como primera opción para resolver este desafío, aun así, tú
   puedes optar por la que se acomode más a tu equipo.
 
+
 Además, podrías agregar algunas tareas nuevas de acuerdo a tus decisiones:
+=======
+
+* Como primer feedback de testeo, el usuario comentó que si crea una cuenta nueva entonces debe ser redirigido a la web automáticamente y no a la página de acceso porque crearía demasiada redundancia.
+
 
 * Recuerda que puedes usar una librería o framework si así lo desea el equipo. Al navegar en internet te darás cuenta de que algunas de estas construyen un
   **boilerplate** por ti, tenlo presente al iniciar tu proyecto.
