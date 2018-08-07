@@ -24,16 +24,25 @@ registerButton.addEventListener('click', () => {
     if (error) {
       console.log(error.code, error.message);
     } else {
-      alert('¡Te Registrado Exitosamente!');
-      htmlCall();
       let user = result.user;
+      //writeUserData recibe parametros
       writeUserData(user.uid, user.displayName, user.email, user.photoURL);
+      alert('¡Usuario Registrado Exitosamente!');
+      htmlCall();
     }
   }
 
   signUp(emailSignUp.value, passwordSignUp.value, cb);
 
 });
+
+// //Function to confirm the password
+// const passwordConfirm = () => {
+//     let password = document.getElementById('new-password');
+//     if (password === passwordValidation) {
+//         let
+//     }
+// }
 
 ///////////////////////////////////Métodos de Inicio de Sesión///////////////////////////////////
 
@@ -43,7 +52,7 @@ signInButton.addEventListener('click', () => {
     if (error) {
       console.log(error.code, error.message);
     } else {
-      alert('Has Iniciado Sesión Correctamente');
+      alert('Sesión Iniciada Correctamente');
       htmlCall();
     }
   }
@@ -63,10 +72,10 @@ googleButton.addEventListener('click', () => {
       console.log(error.email);
       console.log(error.credential);
     } else {
-      alert('¡Has Sido Logueado Exitosamente!');
-      htmlCall();
       let user = result.user;
       writeUserData(user.uid, user.displayName, user.email, user.photoURL);
+      alert('¡Usuario Registrado Con Google Exitosamente!');
+      htmlCall();
     }
   }
   signInGoogle(provider, cb);
@@ -83,10 +92,10 @@ facebookButton.addEventListener('click', () => {
       console.log(error.credential);
 
     } else {
-      alert('¡Has Sido Logueado Exitosamente!');
-      htmlCall();
       let user = result.user;
       writeUserData(user.uid, user.displayName, user.email, user.photoURL);
+      alert('¡Usuario Registrado Con Facebook Exitosamente!');
+      htmlCall();
     }
   }
 
