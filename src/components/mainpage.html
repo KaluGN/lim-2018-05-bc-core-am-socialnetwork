@@ -10,7 +10,8 @@
   <!-- Import Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="../../bootstrap-4.1.2-dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="../css/mainpage.css">
 </head>
@@ -19,19 +20,42 @@
 
   <!-- Section Container User -->
   <main>
-    <div class="container-fluid">
-      <!-- titulo -->
-      <nav class="navbar ">
-        <img src="../../img/css/wariqué.png" class="img-responsive img-circle" id="img-warique">
-        <p class="text-center">¿Qué se te antoja hoy?</p>
-        <form class="form-inline">
-          <button type="button" id="btnLogout" class="btn btn-warning" value="Logout">Salir</button>
-          <button type="button" id="btnProfile" class="btn btn-light">Perfil</button>
-        </form>
-      </nav>
-      <br>
-      <!-- contenedor de posts -->
-      <div class="col-md-6 mb-3">
+    <header class="header">
+      <div class="container">
+        <!-- titulo -->
+        <nav class="navbar ">
+          <img src="../../img/css/wariqué.png" class="img-responsive img-circle" id="img-warique">
+          <p class="text-center">¿Qué se te antoja hoy?</p>
+          <form class="form-inline">
+            <button type="button" id="btnLogout" class="btn btn-warning" value="Logout">Salir</button>
+            <button type="button" id="btnProfile" class="btn btn-light">Perfil</button>
+          </form>
+        </nav>
+      </div>
+    </header>
+    <!-- contenedor de posts -->
+
+    <div class="col-md-5" id="firstSection">
+      <form class="border p-4 mb-4" id="form">
+        <div class="form-group" id="new-post">
+          <label>¿Qué quieres recomendar?</label>
+          <textarea type="text" class="form-control" id="comment" placeholder="Cuéntanos, cuál es tu wariqué favorito" /></textarea>
+        </div>
+
+        <!-- Selector privacidad -->
+        <select name="privacy-option" id="myselect" class="form-control col-md-4 mb-3">
+          <option value="privacidad">Privacidad</option>
+          <option id="priv" value="private">Privado</option>
+          <option id="pub" value="public">Público</option>
+        </select>
+
+        <span type="submit" id="button-food" class="btn btn-primary">
+          <i class="fa fa-cutlery fa-3x" aria-hidden="true"></i>
+          <p>Publicar</p>
+        </span>
+      </form>
+    </div>
+    <!-- <div class="col-md-6 mb-3">
         <div class="input-group container-input">
           <textarea id="comment" class="form-control" rows="5" placeholder="Comenta tu warique preferido"></textarea>
 
@@ -45,29 +69,29 @@
           <option id="priv" value="private">Privado</option>
           <option id="pub" value="public">Público</option>
         </select>
+      </div> -->
+
+    <!-- contenedor de posts nuevos  -->
+    <div id="container-new-post" class="col-xs-12 outline">
 
 
-        <!-- contenedor de posts nuevos  -->
-        <div id="container-new-post" class="col-xs-12 outline">
-
-        </div>
-
-      </div>
   </main>
   <!-- footer -->
-  <nav class="container footer">
-    <div class="row">
-      <div class="col">
-        <i class="material-icons">Menú principal</i>
+  <footer class="footer">
+    <nav class="container footer">
+      <div class="row">
+        <div class="col">
+          <a class="letter-footer">Menú principal</a>
+        </div>
+        <div class="col">
+          <a class="letter-footer">Mensaje</a>
+        </div>
+        <div class="col">
+          <a class="letter-footer">Notificaciones</a>
+        </div>
       </div>
-      <div class="col">
-        <i class="material-icons">Mensaje</i>
-      </div>
-      <div class="col">
-        <i class="material-icons">Notificaciones</i>
-      </div>
-    </div>
-  </nav>
+    </nav>
+  </footer>
 
   <!-- Import jQuery and Bootstrap.js -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

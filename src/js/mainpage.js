@@ -181,3 +181,4 @@ logOutButton.addEventListener('click', () => {
 $('#btnProfile').on('click', function () {
    window.location.assign('../components/perfil.html');
 })
+

@@ -2,53 +2,53 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #000;
+  color: #ffffff;
+}
+
+.header {
+  background-color: #E02222
 }
 #img-warique{
   border-radius:100px 100px;
   /* outline: 1px solid black ; */
-  max-width: 5%;    
+  width: 15%;    
 }
 
-nav p{
-  font-size: 200%;
+.text-center{
+  font-size: 100%;
   font-family: 'Times New Roman', Times, serif;
   font-style: oblique;
   font-weight: bold;
-  color: white;
-}
-nav{
-   background: rgb(194, 46, 46);
+  color: #ffffff;
 }
 
+
 /* contenido en html  */
-.text-center{
-  text-align: center
-}
-h2{
+
+/* h2{
   background: red;
 }
 #comment{
   width: 50%;
   margin-left: 5%
-}
+} */
 /* .container-input {
   margin-bottom: 6rem;
   }
      */
 
 /* contenido total  */
-.container-background {
+/* .container-background {
   border: 1px solid #3c4643;
   margin: 5em;
   border-radius: 0.3em;
-}
-
+} */
+/* 
 .container-food {
   display: flex;
   align-items: center;
-}
-
+} */
+/* 
 .user-background {
   width: 5rem;
 }
@@ -56,8 +56,8 @@ h2{
 .user-icon {
     width: 2rem;
   }
-  
-.text {
+   */
+/* .text {
     color: #000;
     text-align: justify;
   }
@@ -68,11 +68,11 @@ h2{
   
 .hour {
     font-size: 1rem;
-    margin: 0;
-}
+    margin: 0; 
+}*/
 
 /* para los iconos  */
-.like {
+/* .like {
   width: 2rem;
   cursor: pointer;
 }
@@ -83,8 +83,13 @@ h2{
 
 .edit {
   cursor: pointer;
-  color: rgba(0, 0, 255, 0.733);
-}
+  color: rgba(176, 176, 233, 0.733);
+} */
+
+
+.container footer{
+  background-color: #E3EFD5;
+  }
 
 .footer {
   position:fixed;
@@ -92,5 +97,5 @@ h2{
   bottom:0px;
   height:35px;
   width:100%;
-  background:rgba(167, 167, 167, 0.603);
-} 
+  background-color:#E3EFD5;
+}
