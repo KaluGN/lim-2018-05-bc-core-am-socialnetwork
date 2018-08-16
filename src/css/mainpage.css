@@ -2,124 +2,119 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #ffffff;
-}
-
-.header {
-  background-color: #E02222
-}
-#img-warique{
+  color: #000;
+ }
+ #img-warique{
   border-radius:100px 100px;
   /* outline: 1px solid black ; */
-  width: 15%;    
-}
-
-.text-center{
-  font-size: 100%;
+  max-width: 5%;
+ }
+ 
+ nav p{
+  font-size: 200%;
   font-family: 'Times New Roman', Times, serif;
   font-style: oblique;
   font-weight: bold;
-  color: #ffffff;
-}
-
-
-/* contenido en html  */
-
-/* h2{
+  color: white;
+ }
+ nav{
+   background: rgb(194, 46, 46);
+ }
+ 
+ /* contenido en html  */
+ .text-center{
+  text-align: center
+ }
+ h2{
   background: red;
-}
-.container-comment{
+ }
+ .container-comment{
   display: inline;
   width: 50%;
   margin-left: 5%
-}
-
-/* contenido total  */
-/* .container-background {
+ }
+ 
+ /* contenido total  */
+ .container-background {
   border: 1px solid #3c4643;
   margin: 5em;
   border-radius: 0.3em;
-} */
-/* 
-.container-food {
+ }
+ 
+ .container-food {
   display: flex;
   align-items: center;
-} */
-/* 
-.user-background {
+ }
+ 
+ .user-background {
   width: 5rem;
-}
-
-.user-icon {
+ }
+ 
+ .user-icon {
     width: 2rem;
   }
-   */
-/* .text {
+ 
+ .text {
     color: #000;
     text-align: justify;
   }
-  
-.name {
+ 
+ .name {
     font-family: 'Press Start 2P', cursive;
   }
-  
-.hour {
+ 
+ .hour {
     font-size: 1rem;
-    margin: 0; 
-}*/
-
-/* para los iconos  */
-/* .like {
+    margin: 0;
+ }
+ 
+ /* para los iconos  */
+ .like {
   width: 2rem;
   cursor: pointer;
-}
-
-.delete {
+ }
+ 
+ .delete {
   display: none;
-}
-
-.edit {
+ }
+ 
+ .edit {
   cursor: pointer;
-  color: rgba(176, 176, 233, 0.733);
-} */
-
-
-.container footer{
-  background-color: #E3EFD5;
-  }
-
-.footer {
+  color: rgba(0, 0, 255, 0.733);
+ }
+ 
+ .footer {
   position:fixed;
   left:0px;
   bottom:0px;
   height:35px;
   width:100%;
   background:rgba(167, 167, 167, 0.603);
-} 
-.container-publication {
+ }
+ .container-publication {
   display: flex;
   align-items: center;
   margin-top: 3rem
-}
-.container-button {
+ }
+ .container-button {
   display: inline;
   margin-left: 2rem
-}
-.container-img {
+ }
+ .container-img {
   display: flex;
   justify-content: flex-end;
-}
-.img {
+ }
+ .img {
   text-align: end
-}
-.not-padding {
+ }
+ .not-padding {
   padding: 0;
-}
-.flex {
+ }
+ .flex {
   display: flex;
   align-items: center
-}
-.num-like {
+ }
+ .num-like {
   margin-left: 1rem;
   margin-bottom: 0
-}
+ }
