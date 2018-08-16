@@ -17,23 +17,28 @@ $(document).ready(() => {
       var nameUser = user.email;
       var photoUser = user.photoURL;
       var like = 0;
-      
+
       /* Publico */
       $buttonFood.on('click', function (event) {
         if ($comment.val() && $comment.val() !== 0) {
           var publication = $comment.val();
           var hour = moment().format('LT');
 
-          firebase.database().ref('bd').child('publication').push({
-            publication: publication,
-            hour: hour,
-            code: codeUser,
-            name: nameUser,
-            photo: photoUser !== null ? photoUser : 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
-            like: like,
-          });
+          if (publication === "" || publication.trim() === "") {
+            alert('ingrese un post')
+          } else {
+            firebase.database().ref('bd').child('publication').push({
+              publication: publication,
+              hour: hour,
+              code: codeUser,
+              name: nameUser,
+              photo: photoUser !== null ? photoUser : 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
+              like: like,
+            });
+          }
         }
       });
+
 
       showPublication();
       function showPublication() {
@@ -53,8 +58,8 @@ $(document).ready(() => {
 
             var na = elem.name;
             var be = na.indexOf('@')
-            var nameMail = na.slice(0,be) 
- 
+            var nameMail = na.slice(0, be)
+
             $containerNewPost.prepend(`
                  <div class="col-xs-12 container-background container-food container-public-private">
                     <div id="container-icon-user" class="col-lg-1 container-food ">
@@ -86,7 +91,7 @@ $(document).ready(() => {
                     </div>
                 </div>`);
           });
-        
+
           // cuenta likes
           $('.container-like').on('click', function (e) {
             e.preventDefault();
@@ -156,19 +161,22 @@ $(document).ready(() => {
       }
 
       /* Privado */
-
       $buttonFoodPrivate.on('click', function (event) {
         if ($commentPrivate.val() && $commentPrivate.val() !== 0) {
           var publication = $commentPrivate.val();
           var hour = moment().format('LT');
 
-          firebase.database().ref('bd').child(codeUser).child('publication').push({
-            publication: publication,
-            hour: hour,
-            code: codeUser,
-            name: nameUser,
-            photo: photoUser !== null ? photoUser : 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
-          });
+          if (publication === "" || publication.trim() === "") {
+            alert('ingrese un post')
+          } else {
+            firebase.database().ref('bd').child(codeUser).child('publication').push({
+              publication: publication,
+              hour: hour,
+              code: codeUser,
+              name: nameUser,
+              photo: photoUser !== null ? photoUser : 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
+            });
+          }
         }
       });
 
@@ -185,7 +193,7 @@ $(document).ready(() => {
           })
 
           $containerNewPostPrivate.html('');
-          arrNewData.map(elem => { 
+          arrNewData.map(elem => {
             $containerNewPostPrivate.prepend(`
                  <div class="col-xs-12 container-background container-food container-public-private">
                     <div id="container-icon-user" class="col-lg-1 container-food ">
