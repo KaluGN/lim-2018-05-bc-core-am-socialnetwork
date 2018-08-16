@@ -28,14 +28,11 @@
 /* h2{
   background: red;
 }
-#comment{
+.container-comment{
+  display: inline;
   width: 50%;
   margin-left: 5%
-} */
-/* .container-input {
-  margin-bottom: 6rem;
-  }
-     */
+}
 
 /* contenido total  */
 /* .container-background {
@@ -97,5 +94,32 @@
   bottom:0px;
   height:35px;
   width:100%;
-  background-color:#E3EFD5;
+  background:rgba(167, 167, 167, 0.603);
+} 
+.container-publication {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem
+}
+.container-button {
+  display: inline;
+  margin-left: 2rem
+}
+.container-img {
+  display: flex;
+  justify-content: flex-end;
+}
+.img {
+  text-align: end
+}
+.not-padding {
+  padding: 0;
+}
+.flex {
+  display: flex;
+  align-items: center
+}
+.num-like {
+  margin-left: 1rem;
+  margin-bottom: 0
 }

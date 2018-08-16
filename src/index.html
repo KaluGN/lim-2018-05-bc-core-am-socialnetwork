@@ -34,10 +34,12 @@
         <div class="col-xs-12">
           <form onsubmit="return false">
             <div class="form-group">
-              <input type="email" class="form-control" id="email-signin" placeholder="Email" required>
+              <input type="email" class="form-control" id="email-signin" placeholder="Email" >
+              <p id="email-validate"></p>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" id="password-signin" placeholder="Password" required>
+              <input type="password" class="form-control" id="password-signin" placeholder="Password" >
+              <p id="password-validate"></p>
             </div>
             <div>
               <button type="submit" id="sign-in-button" class="btn btn-outline-danger">Ingresa</button>
@@ -87,19 +89,15 @@
         <div class="col-xs-12">
           <form onsubmit="return false">
             <div class="form-group">
-              <input type="text" class="form-control" id="name-signup" placeholder="Nombre Completo" required>
+              <input type="text" class="form-control" id="name-signup" placeholder="Nombre Completo" >
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="user-signup" placeholder="Nombre de Usuario" required>
+              <input type="email" class="form-control" id="email-signup" placeholder="Correo Electrónico/Email" >
+              <p id="register-email-validate"></p>
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" id="email-signup" placeholder="Correo Electrónico/Email" required>
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" id="password-signup" placeholder="Contraseña" required>
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" id="password-validation" placeholder="Confirma tu contraseña" required>
+              <input type="password" class="form-control" id="password-signup" placeholder="Contraseña" >
+              <p id="register-password-validate"></p>
             </div>
             <div class="form-group">
               <button type="submit" id="register" class="btn btn-danger">Registrarte</button>
@@ -150,8 +148,8 @@
   <script src="../bootstrap-4.1.2-dist/js/bootstrap.min.js"></script>
 
   <script src="js/data.js"></script>
+  <script src="js/validation.js"></script>
   <script src="js/methods.js"></script>
-
 
 </body>
 

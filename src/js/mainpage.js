@@ -1,10 +1,15 @@
-const logOutButton = document.getElementById('btnLogout');
+$('#myTabs a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
 
 $(document).ready(() => {
   $buttonFood = $('#button-food');
+  $buttonFoodPrivate = $('#button-food-private')
   $containerNewPost = $('#container-new-post');
+  $containerNewPostPrivate = $('#container-new-post-private')
   $comment = $('#comment');
-
+  $commentPrivate = $('#comment-private')
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -12,15 +17,13 @@ $(document).ready(() => {
       var nameUser = user.email;
       var photoUser = user.photoURL;
       var like = 0;
-      var  postPrivate =  postPrivate;
-
-
+      
+      /* Publico */
       $buttonFood.on('click', function (event) {
         if ($comment.val() && $comment.val() !== 0) {
           var publication = $comment.val();
           var hour = moment().format('LT');
-          // var postStatus = $('#myselect').val() === "public" ? true : false ;
-          var postStatus = $('#myselect').val() ;
+
           firebase.database().ref('bd').child('publication').push({
             publication: publication,
             hour: hour,
@@ -28,14 +31,11 @@ $(document).ready(() => {
             name: nameUser,
             photo: photoUser !== null ? photoUser : 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
             like: like,
-            postStatus : postStatus ,
           });
-         
         }
       });
 
       showPublication();
-
       function showPublication() {
         firebase.database().ref('bd').on('value', (element) => {
 
@@ -53,43 +53,39 @@ $(document).ready(() => {
 
             var na = elem.name;
             var be = na.indexOf('@')
-            // console.log(be);
             var nameMail = na.slice(0,be) 
-
+ 
             $containerNewPost.prepend(`
                  <div class="col-xs-12 container-background container-food container-public-private">
-                    <div id="container-icon-user" class="col-xs-6 col-md-1 col-sm-3 col-lg-1 container-food ">
+                    <div id="container-icon-user" class="col-lg-1 container-food ">
                       <img class="profile img-responsive img-circle user-background" src='${elem.photo}'>
                     </div>
-                    <div id="container-publication" class="col-xs-10 ">
-                      <p class="text name" color=yellow >${nameMail}</p>
-            
+                    <div id="container-publication" class="col-lg-11 ">
+                      <div class="container-img">
+                        <div class="col-lg-6 not-padding">
+                          <p class="text name" color=yellow >${nameMail}</p>
+                        </div>
+                        <div class="col-lg-6 img not-padding">
+                          <img class="img-responsive like delete container-delete" src='../../img/muro/delete.svg' data-uid=${elem.uid} data-delete=${elem.code}>
+                        </div>
+                      </div>
                       <div class="container-publication-day" data-newPublication=${elem.code}>
                         <p id="publication-day" class="text publication">${elem.publication}</p>
                       </div>
+                      <div></div>
                       <p class="delete container-edit edit" data-uid=${elem.uid} data-edit=${elem.code}>Editar</p>
-                      <p class="text hour">${elem.hour}</p>
-                      <img class="img-responsive like container-like" src='../../img/muro/like.svg' data-uid=${elem.uid} data-like=${elem.like}>
-                      <p>${elem.like}</p>
-                      
+                      <div class="container-img">
+                        <div class="col-lg-6 flex not-padding">
+                          <img class="img-responsive like container-like" src='../../img/muro/like.svg' data-uid=${elem.uid} data-like=${elem.like}>
+                          <p class="num-like">${elem.like}</p>
+                        </div>
+                        <div class="col-lg-6 not-padding">
+                          <p class="text hour  img">${elem.hour}</p>
+                        </div>
+                      </div>
                     </div>
-                    <img class="img-responsive like delete container-delete" src='../../img/muro/delete.svg' data-uid=${elem.uid} data-delete=${elem.code}>
-                    <p>${elem.postStatus}</p>
                 </div>`);
           });
-          
-        // Privacidad
-        // $('#myselect').change(function(){
-        //   var selec =$('#myselect option:selected').val();
-        //   if(selec == "private"){
-
-        //     document.location.href = "../components/perfil.html)" + $(this).serialize();
-      
-        //   }
-        //   else if(selec== "public"){
-
-        //   }
-        // })
         
           // cuenta likes
           $('.container-like').on('click', function (e) {
@@ -142,6 +138,7 @@ $(document).ready(() => {
           $('.container-edit').on('click', function () {
             var uidData = $(this).data('uid')
             var uidUser = $(this).data('edit')
+
             if (uidUser === codeUser) {
               uid.map(elem => {
                 if (elem === uidData) {
@@ -149,7 +146,7 @@ $(document).ready(() => {
                   $(this).prev().find('.button-editar').on('click', function () {
                     var newPublication = $(this).prev().val();
                     firebase.database().ref('bd').child('publication').child(elem).child('publication').set(newPublication);
-                    $(this).parent().html(`<p id="publication-day" class="text publication">${newPublication}</p>`)
+                    $(this).parent().prev().html(`<p id="publication-day" class="text publication">${newPublication}</p>`)
                   })
                 }
               })
@@ -158,17 +155,109 @@ $(document).ready(() => {
         });
       }
 
+      /* Privado */
 
-      var postPrivate = $('#myselect').val() === "public" ? true: false
+      $buttonFoodPrivate.on('click', function (event) {
+        if ($commentPrivate.val() && $commentPrivate.val() !== 0) {
+          var publication = $commentPrivate.val();
+          var hour = moment().format('LT');
+
+          firebase.database().ref('bd').child(codeUser).child('publication').push({
+            publication: publication,
+            hour: hour,
+            code: codeUser,
+            name: nameUser,
+            photo: photoUser !== null ? photoUser : 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
+          });
+        }
+      });
+
+      showPublicationPrivate();
+      function showPublicationPrivate() {
+        firebase.database().ref('bd').child(codeUser).on('value', (element) => {
+          var data = element.child('publication').val();
+          var uid = Object.keys(data)
+          var arrNewData = []
+
+          uid.map(elem => {
+            data[elem].uid = elem
+            arrNewData.push(data[elem])
+          })
+
+          $containerNewPostPrivate.html('');
+          arrNewData.map(elem => { 
+            $containerNewPostPrivate.prepend(`
+                 <div class="col-xs-12 container-background container-food container-public-private">
+                    <div id="container-icon-user" class="col-lg-1 container-food ">
+                      <img class="profile img-responsive img-circle user-background" src='${elem.photo}'>
+                    </div>
+                    <div id="container-publication-private" class="col-lg-11 ">
+                      <div class="container-img">
+                        <div class="col-lg-12 img not-padding">
+                          <img class="img-responsive like container-delete-private" src='../../img/muro/delete.svg' data-uid=${elem.uid} data-delete=${elem.code}>
+                        </div>
+                      </div>
+                      <div class="container-publication-day" data-newPublication=${elem.code}>
+                        <p id="publication-day-private" class="text publication">${elem.publication}</p>
+                      </div>
+                      <div></div>
+                      <p class=" container-edit-private edit" data-uid=${elem.uid} data-edit=${elem.code}>Editar</p>
+                      <div class="container-img">
+                        <div class="col-lg-6 flex not-padding">
+                        </div>
+                        <div class="col-lg-6 not-padding">
+                          <p class="text hour  img">${elem.hour}</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>`);
+          });
+
+          // eliminar post
+          $('.container-delete-private').on('click', function (e) {
+            e.preventDefault();
+            var uidData = $(this).data('uid')
+            var uidUser = $(this).data('delete')
+            var textConfirm = confirm("¿seguro que quiere eliminar el post?")
+            if (uidUser === codeUser) {
+              uid.map(elem => {
+                if (elem === uidData && textConfirm == true) {
+                  firebase.database().ref('bd').child(codeUser).child('publication').child(elem).remove();
+                }
+                else {
+                  //se queda igual
+                }
+              })
+            }
+          })
+
+          $('.container-edit-private').on('click', function () {
+            var uidData = $(this).data('uid')
+            var uidUser = $(this).data('edit')
+
+            if (uidUser === codeUser) {
+              uid.map(elem => {
+                if (elem === uidData) {
+                  $(this).prev().html(`<div><input type="text" class="input-edit" placeholder="Actualiza"/><button class="button-editar-private">Guardar</button></div>`)
+                  $(this).prev().find('.button-editar-private').on('click', function () {
+                    var newPublication = $(this).prev().val();
+                    firebase.database().ref('bd').child(codeUser).child('publication').child(elem).child('publication').set(newPublication);
+                    $(this).parent().prev().html(`<p id="publication-day-private" class="text publication">${newPublication}</p>`)
+                  })
+                }
+              })
+            }
+          })
+        });
+      }
     } else {
       // No user is signed in.
     }
   });
 });
 
-// $('.container-like').on('click', function (e) 
 // LogOut button 
-logOutButton.addEventListener('click', () => {
+$('#btnLogout').on('click', function () {
   firebase.auth().signOut()
     .then(() => {
       window.location.assign('../index.html');
@@ -178,7 +267,6 @@ logOutButton.addEventListener('click', () => {
 });
 
 
-$('#btnProfile').on('click', function () {
-   window.location.assign('../components/perfil.html');
-})
+
+
 
